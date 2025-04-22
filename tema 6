@@ -1,0 +1,79 @@
+#include <stdio.h> //Пример 1
+
+int main() {
+    char text[] = "the cat sat on the mat";
+    char target[] = "cat";
+    int textLength = 0;
+    int targetLength = 0;
+
+    // Считаем длину text
+    while (text[textLength] != '\0') {
+        textLength++;
+    }
+
+    // Считаем длину target
+    while (target[targetLength] != '\0') {
+        targetLength++;
+    }
+
+    // Ищем target в text
+    int foundIndex = -1;
+    for (int i = 0; i <= textLength - targetLength; i++) {
+        int match = 1;
+        for (int j = 0; j < targetLength; j++) {
+            if (text[i + j] != target[j]) {
+                match = 0;
+                break;
+            }
+        }
+        if (match == 1) {
+            foundIndex = i;
+            break;
+        }
+    }
+
+    if (foundIndex != -1) {
+        printf("Слово \"%s\" найдено на позиции %d\n", target, foundIndex);
+    } else {
+        printf("Слово \"%s\" не найдено\n", target);
+    }
+
+    return 0;
+}
+
+
+#include <stdio.h> //Пример 2
+
+int main() {
+    char text[] = "the cat sat on the mat";
+    int textLength = 0;
+
+    // Считаем длину строки
+    while (text[textLength] != '\0') {
+        textLength++;
+    }
+
+    // Максимум 10 слов, каждое до 20 символов
+    char words[10][20];
+    int wordIndex = 0;  // номер слова
+    int letterIndex = 0; // индекс внутри слова
+
+    for (int i = 0; i <= textLength; i++) {
+        if (text[i] == ' ' || text[i] == '\0') {
+            words[wordIndex][letterIndex] = '\0'; // закрываем слово
+            wordIndex++;
+            letterIndex = 0; // начинаем следующее слово
+        } else {
+            words[wordIndex][letterIndex] = text[i];
+            letterIndex++;
+        }
+    }
+
+    // Выводим слова
+    printf("Разделённые слова:\n");
+    for (int i = 0; i < wordIndex; i++) {
+        printf("%s\n", words[i]);
+    }
+
+    return 0;
+}
