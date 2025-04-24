@@ -1,0 +1,66 @@
+#include <stdio.h>
+
+int main() {
+    char lines[7][20]={
+        "/Cars.txt",
+        "Салам",
+        "Нива",
+        "Тбилиси",
+        "девятка",
+        "приора",
+        "Права"
+    };
+    
+    printf("Имя файла: %s\n", lines[0]); // вводим имя файла
+    
+    char content[100]; //происходит обЪединение строк
+    int index = 0;
+    for (int i = 1; i < 7; i++) { // строки со 2 по последнюю
+        int j = 0;
+        while (lines[i][j] != '\0') {
+            content[index] = lines[i][j];
+            index++;
+            j++;
+        }
+        content[index] = '\n'; // добавляем перенос строки
+        index++;
+    }
+    content[index] = '\0'; // конец всей строки
+
+    printf("\nСодержимое файла:\n%s", content); //Выводим содержимое файла
+
+    char target[] = "Нива"; //проверяем есть ли слово"Нива"
+    int contentLength = 0;
+    int targetLength = 0;
+
+    while (content[contentLength] != '\0') {
+        contentLength++;
+    }
+
+    while (target[targetLength] != '\0') {
+        targetLength++;
+    }
+
+    int found = 0;
+    for (int i = 0; i <= contentLength - targetLength; i++) {
+        int match = 1;
+        for (int j = 0; j < targetLength; j++) {
+            if (content[i + j] != target[j]) {
+                match = 0;
+                break;
+            }
+        }
+        if (match == 1) {
+            found = 1;
+            break;
+        }
+    }
+
+    if (found) {
+        printf("\nСлово \"%s\" найдено в тексте\n", target);
+    } else {
+        printf("\nСлово \"%s\" не найдено\n", target);
+    }
+
+    return 0;
+}
