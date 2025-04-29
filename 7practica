@@ -1,4 +1,4 @@
-#include <stdio.h> // задача 2
+#include <stdio.h> // Задача 1
 
 int max(int a, int b) { // Функция max для нахождения максимального числа
     return (a > b) ? a : b; // Возвращаем большее число
