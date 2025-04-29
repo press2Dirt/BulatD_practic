@@ -1,0 +1,53 @@
+#include <stdio.h> // задача 2
+
+int max(int a, int b) { // Функция max для нахождения максимального числа
+    return (a > b) ? a : b; // Возвращаем большее число
+}
+
+int main() {
+    int num1, num2; // Объявляем переменные для чисел
+    printf("Введите два целых числа: ");
+    scanf("%d %d", &num1, &num2); // обработка двух чисел дял вывода
+    printf("Максимальное число: %d\n", max(num1, num2)); // Выводим максимальное число
+    return 0;
+}
+
+
+
+#include <stdio.h> // Задача 2
+#include <string.h>
+
+int indexOf(char text[], char word[]) { // Функция для нахождения индекса первого вхождения
+    int textLength = strlen(text);
+    int wordLength = strlen(word);
+    for (int i = 0; i <= textLength - wordLength; i++) { // Проходим по тексту
+        int j;
+        
+        // Сравниваем часть текста с искомым словом
+        for (j = 0; j < wordLength; j++) {
+            if (text[i + j] != word[j]) {
+                break; // Если символы не совпадают, выходим из цикла
+            }
+        }
+
+        // Если все символы совпали
+        if (j == wordLength) {
+            return i; // Возвращаем индекс начала искомого слова
+        }
+    }
+    return -1; // Если слово не найдено, возвращаем -1
+}
+
+int main() {
+    char sentence[] = "niva priora"; // Исходная строка
+    char word[] = "priora"; // нужное слово
+
+    int index = indexOf(sentence, word); // Находим индекс
+    if (index != -1) {
+        printf("Слово \"%s\" найдено на индексе: %d\n", word, index); // Выводим результат
+    } else {
+        printf("Слово \"%s\" не найдено.\n", word); // сообщение ненахождении
+    }
+
+    return 0;
+}
