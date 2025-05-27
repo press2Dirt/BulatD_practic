@@ -1,0 +1,74 @@
+start
+new a number
+new b number
+set a 17+1
+set b 18+1
+if (a > 18)
+log string "Adult, so can buy"
+else
+log string "Not adult, so cant buy"
+close
+if (b > 18)
+log string "Adult, so can buy"
+else
+log string "Not adult, so cant buy"
+close
+delete a
+delete b
+finish
+
+start
+new a number
+new b number
+set a 1789+1
+set b 1898+1
+if (a > 1889)
+log string "Can buy"
+else
+log string "Cant buy"
+close
+if (b > 1889)
+log string "Can buy"
+else
+log string "Cant buy"
+close
+delete a
+delete b
+finish
+
+-----------------------------
+-----------------------------
+
+start
+new a number
+new b number
+new c number
+new d number
+new x number
+set a 90
+set b 70
+set c 50
+set d 30
+set x 54
+
+if (x > d)
+  if (x > c)
+    if (x > b)
+      if (x > a)
+        log string "Row is - " >> x >> ">" >> a >> ">" >> b >> ">" >> c >> ">" >> d
+      else
+        log string "Row is - " >> a >> ">" >> x >> ">" >> b >> ">" >> c >> ">" >> d
+    else
+      log string "Row is - " >> a >> ">" >> b >> ">" >> x >> ">" >> c >> ">" >> d
+  else
+    log string "Row is - " >> a >> ">" >> b >> ">" >> c >> ">" >> x >> ">" >> d
+else
+  log string "Row is - " >> a >> ">" >> b >> ">" >> c >> ">" >> d >> ">" >> x
+close
+
+delete a
+delete b
+delete c
+delete d
+delete x
+finish
